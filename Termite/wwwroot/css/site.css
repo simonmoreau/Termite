@@ -15,6 +15,10 @@
     background-color: #F0F8FF;
 }
 
+.material-icons.md-15 {
+    font-size: 15px;
+}
+
 .mdl-button--file input {
     cursor: pointer;
     height: 100%;

@@ -10,11 +10,17 @@
         <link rel="stylesheet" href="~/lib/material-design-lite/material.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="~/css/site.css" />
+        <!-- The Viewer CSS -->
+        <link rel="stylesheet" href="https://developer.api.autodesk.com/viewingservice/v1/viewers/style.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="~/lib/material-design-lite/material.min.css" asp-append-version="true" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- The Viewer CSS -->
+        <link rel="stylesheet" href="https://developer.api.autodesk.com/viewingservice/v1/viewers/style.min.css" asp-append-version="true"/>
     </environment>
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
@@ -24,7 +30,8 @@
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
                 <!-- Title -->
-                <span class="mdl-layout-title">My Forge Web Viewer</span>
+                <object type="image/svg+xml" data="~/images/optimised.svg">Your browser does not support SVG</object>
+                <span class="mdl-layout-title">Termite</span>
                 <!-- Add spacer, to align navigation to the right -->
                 <div class="mdl-layout-spacer"></div>
                 <!-- Navigation. We hide it in small screens. -->
@@ -53,7 +60,14 @@
                     @RenderBody()
                 </div>
             </div>
+            <footer class="mdl-mini-footer">
+                <div class="mdl-mini-footer--right-section">
+                    From <a href="http://www.bim42.com">BIM 42</a>, with <i class="material-icons md-15">favorite</i> Created by Hea Poh Lin from the Noun Project
+                </div>
+            </footer>
         </main>
+
+
     </div>
 
     <environment names="Development">
@@ -70,6 +84,8 @@
         </script>
         <script src="~/lib/material-design-lite/material.min.js" asp-append-version="true"></script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
+
+        
     </environment>
 
     @RenderSection("Scripts", required: false)

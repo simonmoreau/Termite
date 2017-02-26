@@ -9,8 +9,6 @@ using Microsoft.Extensions.Options;
 
 namespace Termite.Controllers
 {
-    [Produces("application/json")]
-    [Route("api/forge")]
     public class TokenController : Controller
     {
         private readonly Data.Secrets _mySecrets;

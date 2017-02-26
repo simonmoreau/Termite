@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="wwwroot\images\optimised.svg" />
     <Content Include="wwwroot\js\ForgeViewer.js" />
   </ItemGroup>
   <ItemGroup>

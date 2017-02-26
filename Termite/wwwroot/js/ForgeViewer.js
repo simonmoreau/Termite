@@ -88,7 +88,7 @@ function onItemLoadFail(errorCode) {
 function getAccessToken() {
     var xmlHttp = null;
     xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", '/api/forge/token/', false /*forge viewer requires SYNC*/);
+    xmlHttp.open("GET", '/api/forge/token', false /*forge viewer requires SYNC*/);
     xmlHttp.send(null);
     return xmlHttp.responseText;
 }

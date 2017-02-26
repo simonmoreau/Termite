@@ -24,7 +24,8 @@ namespace Termite.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            string test = "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2VhcHAzYTQ5NmZkZmU4MTg0ZDczYmUxOWUxYTM4NjY0OGIyMC9MYW5kLmlmYw==";
+            return View((object)test);
         }
 
         [HttpPost("Home/Upload")]
@@ -132,6 +133,13 @@ namespace Termite.Controllers
         {
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(input);
             return System.Convert.ToBase64String(plainTextBytes);
+        }
+
+        public ActionResult ForgeViewer()
+        {
+            ViewBag.Message = "This is the Autodesk Forge Viewer.";
+            string test = "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2VhcHA5MmEwMmQ3MzE5YjM0YTlhODc1Y2IxNWY1NDMzNmVlMC9MYW5kLmlmYw==";
+            return View((object)test);
         }
 
         public IActionResult About()
