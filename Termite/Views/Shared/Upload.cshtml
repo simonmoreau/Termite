@@ -1,0 +1,19 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Upload" class="navbar-right">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">
+        <input class="mdl-textfield__input" placeholder="File" type="text" id="uploadFile" readonly />
+        <div class="mdl-button mdl-button--accent mdl-button--icon mdl-button--file">
+            <i class="material-icons">attach_file</i><input type="file" name="file" id="uploadBtn">
+        </div>
+    </div>
+    <label class="mdl-button mdl-button--accent mdl-button--raised mdl-js-button mdl-js-ripple-effect">
+        Upload
+        <input type="submit" value="Upload" name="Submit" id="Submit" style="display: none;" />
+    </label>
+</form>

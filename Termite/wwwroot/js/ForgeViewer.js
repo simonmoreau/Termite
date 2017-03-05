@@ -144,6 +144,20 @@ function getPropertiesFailure(parameters) {
 }
 
 /**
+ * Create a section when clicking on a model face
+ * @param {any} viewer the Forge viewer
+ */
+function createSection(viewer) {
+
+
+}
+
+function removeSections(viewer) {
+    viewer.setCutPlanes(null);
+}
+
+
+/**
  * Triggered when the extension ForgeViewerExtension is loaded
  * @returns {} 
  */
@@ -155,9 +169,15 @@ ForgeViewerExtension.prototype.load = function () {
     this.onSelectionBinded = this.onSelectionEvent.bind(this);
     this.viewer.addEventListener(Autodesk.Viewing.SELECTION_CHANGED_EVENT, this.onSelectionBinded);
 
+    //Load the
     var lockBtn = document.getElementById('MyAwesomeLockButton');
-    lockBtn.addEventListener('click', function () {
-        viewer.setNavigationLock(true);
+    lockBtn.addEventListener('change', function () {
+        if (lockBtn.checked) {
+            viewer.setNavigationLock(true);
+        }
+        else {
+            viewer.setNavigationLock(false);
+        }
     });
 
     var sectionBtn = document.getElementById("MySectionView");
@@ -184,12 +204,13 @@ ForgeViewerExtension.prototype.load = function () {
             }
 
             document.getElementById("MyViewerDiv").onclick = null;
+
         }
     });
 
-    var unlockBtn = document.getElementById('MyAwesomeUnlockButton');
-    unlockBtn.addEventListener('click', function () {
-        viewer.setNavigationLock(false);
+    var removeSectionBtn = document.getElementById("removeSectionBtn");
+    removeSectionBtn.addEventListener("click", function () {
+        removeSections(viewer);
     });
 
     return true;

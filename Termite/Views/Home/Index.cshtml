@@ -9,68 +9,53 @@
 <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>
 <script src="~/js/ForgeViewer.js"></script>
 
-<div class="mdl-cell mdl-cell--10-col mdl-card mdl-shadow--4dp">
-    <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">ASP.NET</h2>
+
+<div class="mdl-cell mdl-cell--10-col mdl-card mdl-shadow--4dp mdl-forge">
+    <div id="MyViewerDiv"></div>
+    <div class="mdl-card__actions">
+        <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="MyAwesomeLockButton" id="myLockButtonDiv">
+            <input type="checkbox" id="MyAwesomeLockButton" class="mdl-icon-toggle__input">
+            <i class="mdl-icon-toggle__label material-icons">lock_outline</i>
+        </label>
+        <div class="mdl-tooltip" data-mdl-for="myLockButtonDiv">Lock the view</div>
+
+        <button class="mdl-button mdl-js-button mdl-button--icon" id="MySectionView">
+            <i class="material-icons">flip</i>
+        </button>
+        <div class="mdl-tooltip" data-mdl-for="MySectionView">Add a section</div>
+        <button class="mdl-button mdl-js-button mdl-button--icon" id="removeSectionBtn">
+            <i class="material-icons">clear</i>
+        </button>
+        <div class="mdl-tooltip" data-mdl-for="removeSectionBtn">Remove all sections</div>
     </div>
     <div class="mdl-card__supporting-text">
-        ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.
-    </div>
-    <div class="mdl-cell mdl-cell--6-col mdl-card mdl-shadow--4dp">
-        <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text">Upload</h2>
-        </div>
-        <div class="mdl-card__supporting-text">
-            Please select a file and click on upload to start using the viewer.
-        </div>
-        <div class="mdl-card__actions mdl-card--border">
-            <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Upload">
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">
-                    <input class="mdl-textfield__input" placeholder="File" type="text" id="uploadFile" readonly />
-                    <div class="mdl-button mdl-button--primary mdl-button--icon mdl-button--file">
-                        <i class="material-icons">attach_file</i><input type="file" name="file" id="uploadBtn">
-                    </div>
-                </div>
-                <label class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent">
-                    Upload
-                    <input type="submit" value="Upload" name="Submit" id="Submit" style="display: none;" />
-                </label>
-            </form>
-        </div>
-    </div>
-    <div class="mdl-cell mdl-cell--6-col mdl-card mdl-shadow--4dp forgeViewer">
-        <div id="MyViewerDiv"></div>
-    </div>
-    <div class="mdl-grid">
-
-        <div class="mdl-cell mdl-cell--4-col">
-        </div>
-        <div class="mdl-cell mdl-cell--4-col">
-            <div>
-                Items selected: <br />
-                <div id="MyPropertiesSelected"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-2">
-            <button class="btn btn-default" id="MyAwesomeLockButton">Lock it!</button>
-            <button class="btn btn-default" id="MyAwesomeUnlockButton">Unlock it!</button>
-            <button class="btn btn-default" id="MySectionView">Section</button>
-            <div>Items selected: <span id="MySelectionValue">0</span></div>
-        </div>
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"
-           href="http://asp.net" data-upgraded=",MaterialButton,MaterialRipple">
-            Learn more &raquo;
-            <span class="mdl-button__ripple-container">
-                <span class="mdl-ripple"></span>
-            </span>
-        </a>
+        <div><span id="MySelectionValue">0</span> items selected.</div>
     </div>
 </div>
+
+@*<div class="mdl-cell mdl-cell--10-col mdl-card mdl-shadow--4dp">
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Upload</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+        Please select a file and click on upload to start using the viewer.
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+        <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Upload">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">
+                <input class="mdl-textfield__input" placeholder="File" type="text" id="uploadFile" readonly />
+                <div class="mdl-button mdl-button--primary mdl-button--icon mdl-button--file">
+                    <i class="material-icons">attach_file</i><input type="file" name="file" id="uploadBtn">
+                </div>
+            </div>
+            <label class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent">
+                Upload
+                <input type="submit" value="Upload" name="Submit" id="Submit" style="display: none;" />
+            </label>
+        </form>
+    </div>
+</div>*@
+
 
 <script type="text/javascript">
 

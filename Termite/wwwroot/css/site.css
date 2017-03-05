@@ -9,11 +9,17 @@
 #MyViewerDiv {
     width: 100%;
     height: 100%;
-    margin: 0;
-    /*overflow: hidden;*/
-    position: static;
+    /*min-height: 500px;*/
+    margin: auto;
+    overflow: hidden;
+    position: relative;
     background-color: #F0F8FF;
 }
+
+.mdl-forge{
+    height: 500px;
+}
+
 
 .material-icons.md-15 {
     font-size: 15px;
@@ -37,8 +43,10 @@
 
 .mdl-textfield--file .mdl-button--file {
     right: 0;
+    color: white;
 }
 
 .mdl-grid.center-items {
     justify-content: center;
 }
+

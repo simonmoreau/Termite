@@ -22,10 +22,14 @@ namespace Termite.Controllers
             _mySecrets = optionsAccessor.Value;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string URN)
         {
-            string test = "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2VhcHAzYTQ5NmZkZmU4MTg0ZDczYmUxOWUxYTM4NjY0OGIyMC9MYW5kLmlmYw==";
-            return View((object)test);
+            if (URN == null)
+            {
+                URN = "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2VhcHA2NzVkMDRhZGQ2Mjg0NDI0OWU0MWEwODQ0MWFkOTZmYS9MYW5kLmlmYw==";
+            }
+
+            return View((object)URN);
         }
 
         [HttpPost("Home/Upload")]
@@ -97,6 +101,7 @@ namespace Termite.Controllers
             derivativeApi.Configuration.AccessToken = bearer.access_token;
             dynamic translation = await derivativeApi.TranslateAsync(postTranslation);
 
+
             // check if is ready
             int progress = 0;
             do
@@ -115,13 +120,12 @@ namespace Termite.Controllers
 
             // ready!!!!
 
-            // register a client-side script to show this model
-            //Page.ClientScript.RegisterStartupScript(this.GetType(), "ShowModel", string.Format("<script>showModel('{0}');</script>", objectIdBase64));
-
             // clean up
-            Directory.Delete(tempFilePath, true);
+            System.IO.File.Delete(tempFilePath);
 
-            return Ok(new { size, tempFilePath });
+           //string URN = objectIdBase64;
+
+            return RedirectToAction("Index", new { URN = (object)objectIdBase64 });
         }
 
         /// <summary>
@@ -135,12 +139,11 @@ namespace Termite.Controllers
             return System.Convert.ToBase64String(plainTextBytes);
         }
 
-        public ActionResult ForgeViewer()
-        {
-            ViewBag.Message = "This is the Autodesk Forge Viewer.";
-            string test = "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2VhcHA5MmEwMmQ3MzE5YjM0YTlhODc1Y2IxNWY1NDMzNmVlMC9MYW5kLmlmYw==";
-            return View((object)test);
-        }
+        //public ActionResult ForgeViewer()
+        //{
+        //    ViewBag.Message = "This is the Autodesk Forge Viewer.";
+        //    return View((object)URN);
+        //}
 
         public IActionResult About()
         {
